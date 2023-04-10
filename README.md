@@ -18,3 +18,8 @@ This project is a template for other projects that require a grid of cells, prov
 |**x**|Turn Off/On line drawing|  
 |**Mouse Left**|Create new grid|  
 |**Mouse Right**|Activate Cell|  
+
+# Visualisation
+
+![alt text](image_url)
+
