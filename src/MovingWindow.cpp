@@ -11,7 +11,7 @@ MovingWindow::MovingWindow(unsigned windowWidth, unsigned windowHeight, std::str
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			m_gridManager.addMesh(sf::Vector2f(110.0f * i, 110.0f * j), sf::Vector2i(100, 100), 1);
+			m_gridManager.addMesh(sf::Vector2f(110.0f * i, 200.0f * j), sf::Vector2i(100, 100), 1);
 		}
 	}
 }
@@ -29,7 +29,7 @@ void MovingWindow::run()
 		draw();
 		m_window.display();
 		t.stop();
-		//std::cout << "Frame time: " << t.measure() << std::endl;
+		std::cout << "Frame time: " << t.measure() << std::endl;
 	}
 }
 
