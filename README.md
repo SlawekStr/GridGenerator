@@ -15,7 +15,7 @@ This project is a template for other projects that require a grid of cells, prov
 |Event|Action|  
 |---|---|  
 |**Z**|Turn Off/On square drawing|  
-|**x**|Turn Off/On line drawing|  
+|**X**|Turn Off/On line drawing|  
 |**Mouse Left**|Create new grid|  
 |**Mouse Right**|Activate Cell|  
 
