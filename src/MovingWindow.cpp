@@ -7,11 +7,11 @@ MovingWindow::MovingWindow(unsigned windowWidth, unsigned windowHeight, std::str
 	: Window{windowWidth,windowHeight,windowTitle,framerate}, m_camera{ m_window }
 {
 	// Create grids
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < 100; j++)
 		{
-			m_gridManager.addMesh(sf::Vector2f(110.0f * i, 200.0f * j), sf::Vector2i(100, 100), 1);
+			m_gridManager.addMesh(sf::Vector2f(20.0f * i, 20.0f * j), sf::Vector2i(10, 10), 1);
 		}
 	}
 }
