@@ -1,6 +1,7 @@
 #pragma once
 #include "Window.h"
 #include "Camera.h"
+#include "src/Mesh/GridManager.h"
 
 /// <summary>
 /// A template for a window that allows for basic movement, including camera movement and zooming.
@@ -34,5 +35,6 @@ private:
 	/// </summary>
 	void draw() override;
 private:
-	Camera m_camera;	//!< Handles camera movement and zooming
+	Camera m_camera;			//!< Handles camera movement and zooming
+	GridManager m_gridManager;	//!< Manager for the grids
 };

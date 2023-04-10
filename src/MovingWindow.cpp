@@ -6,6 +6,14 @@
 MovingWindow::MovingWindow(unsigned windowWidth, unsigned windowHeight, std::string windowTitle, unsigned framerate) 
 	: Window{windowWidth,windowHeight,windowTitle,framerate}, m_camera{ m_window }
 {
+	// Create grids
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			m_gridManager.addMesh(sf::Vector2f(110.0f * i, 110.0f * j), sf::Vector2i(100, 100), 1);
+		}
+	}
 }
 
 ////////////////////////////////////////////////////////////
@@ -21,7 +29,7 @@ void MovingWindow::run()
 		draw();
 		m_window.display();
 		t.stop();
-		std::cout << "Frame time: " << t.measure() << std::endl;
+		//std::cout << "Frame time: " << t.measure() << std::endl;
 	}
 }
 
@@ -48,6 +56,27 @@ void MovingWindow::pollEvent()
 				{
 					m_window.close();
 				}
+				else if (e.key.code == sf::Keyboard::Z)
+				{
+					m_gridManager.switchSquares();
+				}
+				else if (e.key.code == sf::Keyboard::X)
+				{
+					m_gridManager.switchLines();
+				}
+				break;
+			}
+			case sf::Event::MouseButtonPressed:
+			{
+				if (e.key.code == sf::Mouse::Button::Left)
+				{
+					m_gridManager.addMesh(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), sf::Vector2i(5, 10), 5);
+				}
+				else if (e.key.code == sf::Mouse::Button::Right)
+				{
+					m_gridManager.handleMouseClick(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+				}
+				break;
 			}
 		}
 	}
@@ -61,7 +90,6 @@ void MovingWindow::update()
 ////////////////////////////////////////////////////////////
 void MovingWindow::draw()
 {
-	sf::RectangleShape rectangle(sf::Vector2f(1920.0f, 1080.0f));
-	rectangle.setFillColor(sf::Color::White);
-	m_window.draw(rectangle);
+	sf::FloatRect viewBound = m_camera.getGlobalViewBounds();
+	m_gridManager.draw(m_window, viewBound);
 }
