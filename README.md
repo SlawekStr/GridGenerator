@@ -21,5 +21,5 @@ This project is a template for other projects that require a grid of cells, prov
 
 # Visualisation
 
-![alt text](image_url)
+![Visualisation](https://github.com/SlawekStr/GridGenerator/blob/master/img/GridGenerator.PNG)
 
